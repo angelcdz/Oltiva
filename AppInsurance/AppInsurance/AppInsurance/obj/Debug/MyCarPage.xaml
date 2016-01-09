@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="AppInsurance.MyCarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppInsurance"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" Background="#FF039BD5">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Oltiva Insurance" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="My car" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" Background="White"
+              x:Name="ContentRoot" Margin="0,9.5,0,0">
+            <StackPanel Margin="19,10,19,0">
+                <Button x:ConnectionId='1' x:Name="btnRequestService"                                >
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid Height="100">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Source="Assets/Icons/technical_wrench.png" />
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0"
+                                           Text="Request Service" VerticalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:ConnectionId='2' x:Name="btnCallPolice"                             Margin="0,20,0,0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid Height="100">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Source="Assets/Icons/emergency.png" />
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0"
+                                           Text="Call Police" VerticalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:ConnectionId='3' x:Name="btnCallAmbulance"                                Margin="0,20,0,0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid Height="100">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Source="Assets/Icons/ambulance.png" />
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0"
+                                           Text="Call Ambulance" VerticalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

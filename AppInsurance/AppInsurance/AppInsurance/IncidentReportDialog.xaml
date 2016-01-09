@@ -1,0 +1,36 @@
+﻿<ContentDialog
+    x:Class="AppInsurance.IncidentReportDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppInsurance"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title=""
+    PrimaryButtonText="OK"  
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    <ContentDialog.Background>
+        <ImageBrush ImageSource="Assets/Collision-Notification.jpg"/>
+    </ContentDialog.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Height="200" />
+
+        <StackPanel Grid.Row="1"
+            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock Text="Remain Calm" Margin="0,0,0,10" />
+            <TextBlock Text="It looks like you've had a little fender bender." Margin="0,0,0,10" />
+            <TextBlock Text="How can we help you?" Margin="0,0,0,10" />
+            <ListBox Height="100">
+                <ListBoxItem>Compile accident report</ListBoxItem>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</ContentDialog>
