@@ -1,4 +1,3 @@
-C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\obj\Debug\Microsoft.Crm.Sdk.Mobile.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.Crm.Sdk.Mobile.dll
 C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.Crm.Sdk.Mobile.pdb
 C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.Crm.Sdk.Mobile.pri

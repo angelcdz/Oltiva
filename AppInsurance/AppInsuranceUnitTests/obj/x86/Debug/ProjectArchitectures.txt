@@ -1,0 +1,4 @@
+C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\AppInsurance\AppInsurance.csproj;neutral
+C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\AppInsuranceUnitTests\AppInsuranceUnitTests.csproj;x86
+C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\Microsoft.Crm.Sdk.Mobile.csproj;neutral
+C:\Users\Administrator\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\Microsoft.Crm.Sdk.Mobile.csproj;neutral

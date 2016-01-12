@@ -82,6 +82,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Base\DAOBase.cs" />
     <Compile Include="Base\RequestBase.cs" />
     <Compile Include="Base\ResponseBase.cs" />
     <Compile Include="CollisionReportPages\CarStatusPage.xaml.cs">
@@ -94,6 +95,7 @@
       <DependentUpon>RepairShopsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="DAO\GetInsurancesDAO.cs" />
     <Compile Include="DTO\GetInsurancesDTO.cs" />
     <Compile Include="MyCarPage.xaml.cs">
       <DependentUpon>MyCarPage.xaml</DependentUpon>
@@ -296,9 +298,7 @@
       <Name>Microsoft.Crm.Sdk.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
