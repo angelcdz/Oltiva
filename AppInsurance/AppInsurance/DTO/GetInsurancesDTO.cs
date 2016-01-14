@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace AppInsurance.DTO.GetInsurances
 {
@@ -15,10 +16,11 @@ namespace AppInsurance.DTO.GetInsurances
         public List<GetInsurancesDTO> Insurances { get; set; }
     }
 
-    public class GetInsurancesDTO
+    public class GetInsurancesDTO : DTOBase
     {
         public string Title { get; set; }
         public string Policy { get; set; }
         public int Claims { get; set; }
+        public BitmapImage Background { get; set; }
     }
 }

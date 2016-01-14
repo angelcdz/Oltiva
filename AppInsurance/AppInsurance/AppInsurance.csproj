@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Base\DAOBase.cs" />
     <Compile Include="Base\RequestBase.cs" />
+    <Compile Include="Base\DTOBase.cs" />
     <Compile Include="Base\ResponseBase.cs" />
     <Compile Include="CollisionReportPages\CarStatusPage.xaml.cs">
       <DependentUpon>CarStatusPage.xaml</DependentUpon>
@@ -95,7 +96,13 @@
       <DependentUpon>RepairShopsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="DAO\GetChallengesDAO.cs" />
+    <Compile Include="DAO\GetClaimsDAO.cs" />
     <Compile Include="DAO\GetInsurancesDAO.cs" />
+    <Compile Include="DAO\GetRewardsDAO.cs" />
+    <Compile Include="DTO\GetRewardsDTO.cs" />
+    <Compile Include="DTO\GetChallengesDTO.cs" />
+    <Compile Include="DTO\GetClaimsDTO.cs" />
     <Compile Include="DTO\GetInsurancesDTO.cs" />
     <Compile Include="MyCarPage.xaml.cs">
       <DependentUpon>MyCarPage.xaml</DependentUpon>
@@ -205,6 +212,11 @@
     <Content Include="Assets\Icons\technical_wrench.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Common\ReadMe.txt" />
+    <Content Include="Images\carrinho.jpg" />
+    <Content Include="Images\casinha.jpg" />
+    <Content Include="Images\motinha.jpg" />
+    <Content Include="Images\pikachu.png" />
+    <Content Include="Images\sergio_mallandro.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

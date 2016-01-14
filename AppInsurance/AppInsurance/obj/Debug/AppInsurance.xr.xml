@@ -9,8 +9,18 @@
     <RootPropertyPathName Name="Item" />
     <RootPropertyPathName Name="Items" />
     <RootPropertyPathName Name="Groups" />
-    <RootPropertyPathName Name="Insurances" />
+    <RootPropertyPathName Name="Rewards" />
+    <RootPropertyPathName Name="Expiration" />
+    <RootPropertyPathName Name="Icon" />
+    <RootPropertyPathName Name="Challenges" />
+    <RootPropertyPathName Name="Background" />
+    <RootPropertyPathName Name="Slogan" />
     <RootPropertyPathName Name="Claims" />
+    <RootPropertyPathName Name="Status" />
+    <RootPropertyPathName Name="Time" />
+    <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="Id" />
+    <RootPropertyPathName Name="Insurances" />
     <RootPropertyPathName Name="Policy" />
     <RootPropertyPathName Name="Group" />
   </Roots.PropertyPathNames>
@@ -24,6 +34,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />
+      <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
@@ -86,6 +97,8 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="LineHeight" />
       <RootProperty Name="Inlines" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">

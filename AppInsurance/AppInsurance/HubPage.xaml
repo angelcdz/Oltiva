@@ -19,7 +19,7 @@
         </DataTemplate>
         
         <DataTemplate x:Key="HubSectionHeaderTemplate">
-            <TextBlock Margin="0,0,0,-9.5" Text="{Binding}" FontSize="30" Foreground="#FFEF6DA2" />
+            <TextBlock Margin="0,0,0,0" Text="{Binding}" FontSize="30" Foreground="#FFEF6DA2" />
         </DataTemplate>
 
         <!-- Grid-appropriate item template as seen in section 2 -->
@@ -57,25 +57,39 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Foreground" Value="White" />
         </Style>
+        <Style TargetType="TextBlock" x:Name="HubTileHeaderTextStyle">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        
+        <Style x:Key="MyClaimsTileHeader" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}" />
+            <Setter Property="FontSize" Value="{ThemeResource TextStyleExtraLargePlusFontSize}" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="LineHeight" Value="33.5" />
+            <Setter Property="Foreground" Value="RoyalBlue" />
+        </Style>
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot">
         <Hub x:Name="Hub" x:Uid="Hub" Header="Oltiva Insurance" HeaderTemplate="{ThemeResource HubHeaderTemplate}"
              Background="{ThemeResource HubBackgroundColorBrush}">
             <HubSection x:Name="My_Insurance" x:Uid="HubSection1" Header="My Insurance"
-                        DataContext="{Binding Groups}"
+                        DataContext="{Binding Insurances}"
                         HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <ListView
-                        ItemsSource="{Binding Insurances}"
+                        ItemsSource="{Binding}"
                         IsItemClickEnabled="True"
                         ItemClick="GroupSection_ItemClick"
                         ItemContainerStyle="{StaticResource HubListViewItemStyle}"
                         ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="0,0,0,27.5"
-                                      Background="#FF039BD5">
+                                <Grid Margin="0,0,0,27.5">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="{Binding Background}"/>
+                                    </Grid.Background>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="100" />
@@ -132,34 +146,60 @@
             </HubSection>
 
             <HubSection x:Name="My_Claims" x:Uid="HubSection2" Header="My Claims" Width="Auto"
-                         DataContext="{Binding Groups[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                         DataContext="{Binding Claims}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <ListView 
                         AutomationProperties.AutomationId="ItemListViewSection3"
                         AutomationProperties.Name="Items In Group"
                         SelectionMode="None"
                         IsItemClickEnabled="True"
-                        ItemsSource="{Binding Items}"
+                        ItemsSource="{Binding}"
                         ItemContainerStyle="{StaticResource HubListViewItemStyle}"
                         ItemClick="ClaimDetailView_ItemClick"
                         ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Margin="0,0,0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <StackPanel Grid.Column="0">
-                                        <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
-                                        <TextBlock Text="{Binding Subtitle}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" />
-                                        <TextBlock Text="{Binding Subtitle}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" />
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Title}" Grid.Row="0"
+                                                Style="{StaticResource MyClaimsTileHeader}"/>
+                                        <TextBlock VerticalAlignment="Center" Margin="10,0,0,0"
+                                                Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}">
+                                            <Run Text="ID:"/>
+                                            <Run Text="{Binding Id}"/>
+                                        </TextBlock>
                                     </StackPanel>
+
+                                    <TextBlock Grid.Row="1"
+                                                Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}">
+                                        <Run Text="Date:"/>
+                                        <Run Text="{Binding Date}"/>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                                Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}">
+                                        <Run Text="Time:"/>
+                                        <Run Text="{Binding Time}"/>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="3"
+                                                Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}">
+                                        <Run Text="Status:"/>
+                                        <Run Text="{Binding Status}"/>
+                                    </TextBlock>
                                     <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"
-                                            Grid.Column="1" HorizontalAlignment="Right">
+                                        Grid.Column="1" HorizontalAlignment="Right">
                                         <Image Source="{Binding ImagePath}" Stretch="UniformToFill"
-                                               AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                                                AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
                                     </Border>
                                 </Grid>
                             </DataTemplate>
@@ -169,35 +209,91 @@
             </HubSection>
 
             <HubSection x:Name="My_Challenges" x:Uid="HubSection3" Header="My Challenges"
-                        DataContext="{Binding Groups[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                        DataContext="{Binding Challenges}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
-                    <ListView 
-                        AutomationProperties.AutomationId="ItemListViewSection3"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
+                    <ListView
+                        ItemsSource="{Binding}"
                         IsItemClickEnabled="True"
-                        ItemsSource="{Binding Items}"
+                        ItemClick="GroupSection_ItemClick"
                         ItemContainerStyle="{StaticResource HubListViewItemStyle}"
-                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
-                        ItemClick="ItemView_ItemClick"
                         ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,27.5">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="{Binding Background}" Stretch="Fill"/>
+                                    </Grid.Background>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40" />
+                                        <RowDefinition Height="70" />
+                                        <RowDefinition Height="70" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                               Grid.Row="1"
+                                               Margin="5,0,0,0"
+                                               VerticalAlignment="Bottom"
+                                               Text="{Binding Slogan}"
+                                               Style="{ThemeResource HubTileFooterTextStyle}" 
+                                               TextWrapping="WrapWholeWords"/>
+                                    <TextBlock Grid.Column="0"
+                                               Grid.Row="2"
+                                               Margin="5,0,0,0"
+                                               Text="{Binding Title}"
+                                               Style="{ThemeResource HubTileHeaderTextStyle}" 
+                                               TextWrapping="WrapWholeWords"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </DataTemplate>
             </HubSection>
 
             <HubSection x:Name="My_Rewards" x:Uid="HubSection4" Header="My Rewards"
-                        DataContext="{Binding Groups[2]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                        DataContext="{Binding Rewards}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <ListView 
-                        AutomationProperties.AutomationId="ItemListViewSection3"
+                        AutomationProperties.AutomationId="ItemListViewSection5"
                         AutomationProperties.Name="Items In Group"
                         SelectionMode="None"
                         IsItemClickEnabled="True"
                         ItemContainerStyle="{StaticResource HubListViewItemStyle}"
-                        ItemsSource="{Binding Items}"
-                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                        ItemsSource="{Binding}"
                         ItemClick="ItemView_ItemClick"
                         ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate >
+                                <Grid Margin="0,5,0,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"
+                                            Margin="0,0,10,0" HorizontalAlignment="Left">
+                                        <Image Source="{Binding Icon}" Stretch="UniformToFill"
+                                               AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                                    </Border>
+                                    <TextBlock Grid.Row="0" Grid.Column="1"
+                                               Grid.RowSpan="2" Text="{Binding Title}"
+                                               Style="{ThemeResource ListViewItemTextBlockStyle}"
+                                               TextWrapping="WrapWholeWords"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1"
+                                               Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}">
+                                        <Run Text="Expires:"/>
+                                        <Run Text="{Binding Expiration}"/>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </DataTemplate>
             </HubSection>

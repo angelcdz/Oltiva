@@ -1,5 +1,9 @@
 ﻿using Microsoft.Xrm.Sdk.Samples;
 using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace AppInsurance.Base
 {
@@ -9,17 +13,19 @@ namespace AppInsurance.Base
     {
         public OrganizationDataWebServiceProxy service { get; set; }
         
-        public ResponseType Execute(RequestType request)
+        public async Task<ResponseType> Execute(RequestType request)
         {
             try
             {
                 if (service == null)
                 {
-                    service = new OrganizationDataWebServiceProxy();
-                    service.ServiceUrl = String.Concat(Constants.CRMUrl, Constants.CRMOrganization);
+                    service = new OrganizationDataWebServiceProxy()
+                    {
+                        ServiceUrl = String.Concat(Constants.CRMUrl, Constants.CRMOrganization)
+                    };
                 }
 
-                return GetData(request);
+                return await GetData(request);
             }
             catch (System.Exception e)
             {
@@ -30,6 +36,6 @@ namespace AppInsurance.Base
             }
         }
 
-        protected abstract ResponseType GetData(RequestType requestData);
+        protected abstract Task<ResponseType> GetData(RequestType requestData);
     }
 }
