@@ -33,6 +33,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Windows.ApplicationModel;
+using Windows.Storage;
 
 // Implementation notes:
 // Some SDK classes have the following methods.
@@ -263,7 +264,7 @@ namespace Microsoft.Xrm.Sdk.Samples
             using (HttpClient httpClient = new HttpClient(new HttpClientHandler() { AutomaticDecompression = System.Net.DecompressionMethods.GZip }))
             {
                 string SOAPAction = "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute";
-
+                
                 StringBuilder content = new StringBuilder();
                 content.Append(GetEnvelopeHeader());
                 content.Append("<s:Body>");
@@ -613,7 +614,8 @@ namespace Microsoft.Xrm.Sdk.Samples
                     foreach (JToken jToken in jTokens)
                     {
                         // Deserialize result to Type T
-                        results.Entities.Add((Entity)JsonConvert.DeserializeObject(jToken.ToString(), currentType.AsType()));
+                        //results.Entities.Add((Entity)JsonConvert.DeserializeObject(jToken.ToString(), currentType.AsType()));
+                        results.Entities.Add((Entity)JsonConvert.DeserializeObject(jToken.ToString()));
                     }
                     results.TotalRecordCount = jTokens.Count();
                     return results;
@@ -665,6 +667,7 @@ namespace Microsoft.Xrm.Sdk.Samples
             List<TypeInfo> typeList = new List<TypeInfo>();
             // Obtain folder of executing application.
             var folder = Package.Current.InstalledLocation;
+            //var folder = Package.Current.
             foreach (var file in await folder.GetFilesAsync())
             {
                 // not only .dll but .exe also contains types.

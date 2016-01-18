@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.Crm.Sdk.Mobile;
 
 namespace AppInsurance.Base
 {
@@ -11,19 +12,17 @@ namespace AppInsurance.Base
         where ResponseType : ResponseBase, new()
         where RequestType : RequestBase
     {
-        public OrganizationDataWebServiceProxy service { get; set; }
+        public CRMContext service { get; set; }
         
         public async Task<ResponseType> Execute(RequestType request)
         {
             try
             {
-                if (service == null)
-                {
-                    service = new OrganizationDataWebServiceProxy()
-                    {
-                        ServiceUrl = String.Concat(Constants.CRMUrl, Constants.CRMOrganization)
-                    };
-                }
+                //if (service == null)
+                //{
+                //    service = new CRMContext();
+                //    await service.GetTokenSilent();
+                //}
 
                 return await GetData(request);
             }

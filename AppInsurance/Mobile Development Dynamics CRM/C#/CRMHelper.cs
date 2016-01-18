@@ -22,26 +22,25 @@ using System.Net.Http.Headers;
 using Windows.Security.Authentication.Web;
 using Windows.UI.Popups;
 
-namespace UniversalModernApp
+namespace Microsoft.Crm.Sdk.Mobile
 {
-    static class CRMHelper
+    public class CRMContext
     {
         // TODO Set these string values as approppriate for your app registration and organization.
         // For more information, see the SDK topic "Walkthrough: Register an app with Active Directory".
-        public const string ServerUrl = "https://my-domain.crm.dynamics.com/";
-        public const string ResourceName = "https://my-domain.crm.dynamics.com/";
-        public static string RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-        public const string ClientId = "893262be-fbdc-4556-9325-9f863b69495b";
+        public string ServerUrl = "https://avanadeoltiva.crm2.dynamics.com/";
+        public string ResourceName = "https://avanadeoltiva.crm2.dynamics.com/";
+        public string RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+        public string ClientId = "6d80ddbc-b327-40ed-9744-c9d7b6c23435";
 
-        public static string AuthorityUrl;
+        public string AuthorityUrl;
 
-        static public OrganizationDataWebServiceProxy proxy;
+        public OrganizationDataWebServiceProxy proxy;
 
-        static CRMHelper()
+        public CRMContext()
         {
             proxy = new OrganizationDataWebServiceProxy();
             proxy.ServiceUrl = ServerUrl;
-            proxy.EnableProxyTypes();
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace UniversalModernApp
         /// http://msdn.microsoft.com/en-us/library/dn531009.aspx#bkmk_oauth_discovery
         /// </summary>
         /// <param name="result">The Authority Url returned from HttpResponseMessage.</param>
-        public static async System.Threading.Tasks.Task DiscoveryAuthority()
+        public async System.Threading.Tasks.Task DiscoveryAuthority()
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -57,30 +56,30 @@ namespace UniversalModernApp
                 // need to specify soap endpoint with client version,.
                 HttpResponseMessage httpResponse = await httpClient.GetAsync(ServerUrl + "/XRMServices/2011/Organization.svc/web?SdkClientVersion=6.1.0.533");
                 // For phone, we dont need oauth2/authorization part.
-                AuthorityUrl = System.Net.WebUtility.UrlDecode(httpResponse.Headers.GetValues("WWW-Authenticate").FirstOrDefault().Split('=')[1]).Replace("oauth2/authorize", "");
+                AuthorityUrl = System.Net.WebUtility.UrlDecode(httpResponse.Headers.GetValues("WWW-Authenticate").FirstOrDefault().Split('=')[1]);//.Replace("oauth2/authorize", "");
             }
         }
 
         #region ADAL for Windows Phone 8/8.1
 
-        static public AuthenticationContext authContext = null;
+        public AuthenticationContext authContext = null;
 
-        public static async System.Threading.Tasks.Task GetTokenSilent()
+        public async System.Threading.Tasks.Task GetTokenSilent()
         {
-            if(String.IsNullOrEmpty(CRMHelper.AuthorityUrl))
-                await CRMHelper.DiscoveryAuthority();
+            if(String.IsNullOrEmpty(this.AuthorityUrl))
+                await this.DiscoveryAuthority();
 
             // If authContext is null, then generate it.
             if (authContext == null)
-#if WINDOWS_PHONE_APP
-                // ADAL for Windows Phone 8.1 builds AuthenticationContext instances throuhg a factory, which performs authority validation at creation time
-                authContext = AuthenticationContext.CreateAsync(CRMHelper.AuthorityUrl).GetResults();
-            AuthenticationResult result = await authContext.AcquireTokenSilentAsync(CRMHelper.ResourceName, CRMHelper.ClientId);
+                //#if WINDOWS_PHONE_APP
+                //                // ADAL for Windows Phone 8.1 builds AuthenticationContext instances throuhg a factory, which performs authority validation at creation time
+                authContext = AuthenticationContext.CreateAsync(this.AuthorityUrl,false).GetResults();
+            AuthenticationResult result = await authContext.AcquireTokenSilentAsync(this.ResourceName, this.ClientId);
 
-#else
-                authContext = new AuthenticationContext(CRMHelper.AuthorityUrl, false);
-            AuthenticationResult result = await authContext.AcquireTokenAsync(CRMHelper.ResourceName, CRMHelper.ClientId);            
-#endif
+            //#else
+            //    authContext = AuthenticationContext.CreateAsync(this.AuthorityUrl).GetResults();
+            //AuthenticationResult result = await authContext.AcquireTokenSilentAsync(this.ResourceName, this.ClientId);            
+            //#endif
 
             if (result != null && result.Status == AuthenticationStatus.Success)
             {
@@ -96,18 +95,18 @@ namespace UniversalModernApp
                 authContext.TokenCache.Clear();
                 // Acquiring a token without user interaction was not possible. 
                 // Trigger an authentication experience and specify that once a token has been obtained the StoreToken method should be called.
-                authContext.AcquireTokenAndContinue(CRMHelper.ResourceName, CRMHelper.ClientId, new Uri(CRMHelper.RedirectUri), StoreToken);
+                authContext.AcquireTokenAndContinue(this.ResourceName, this.ClientId, new Uri(this.RedirectUri), StoreToken);
 #else
                 DisplayErrorWhenAcquireTokenFails(result);
 #endif
             }
         }
 
-        public static void StoreToken(AuthenticationResult result)
+        public void StoreToken(AuthenticationResult result)
         {
             if (result.Status == AuthenticationStatus.Success)
             {
-                CRMHelper.proxy.AccessToken = result.AccessToken;
+                this.proxy.AccessToken = result.AccessToken;
             }
             else
             {
@@ -115,7 +114,7 @@ namespace UniversalModernApp
             }
         }
 
-        static private async void DisplayErrorWhenAcquireTokenFails(AuthenticationResult result)
+        private async void DisplayErrorWhenAcquireTokenFails(AuthenticationResult result)
         {
             MessageDialog dialog;
 

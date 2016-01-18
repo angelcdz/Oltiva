@@ -1,6 +1,7 @@
 ﻿using AppInsurance.Base;
 using AppInsurance.DTO.GetClaims;
 using Microsoft.Crm.Sdk.Messages.Samples;
+using Microsoft.Crm.Sdk.Mobile;
 using Microsoft.Xrm.Sdk.Messages.Samples;
 using Microsoft.Xrm.Sdk.Query.Samples;
 using Microsoft.Xrm.Sdk.Samples;
@@ -13,21 +14,19 @@ namespace AppInsurance.DAO
     {
         protected override async Task<GetClaimsResponse> GetData(GetClaimsRequest requestData)
         {
-            throw new NotImplementedException();
-
             //var request = new RetrieveMultipleRequest();
-            //var query = new QueryExpression("oltv_insurance", new ColumnSet(true));
+            //var query = new QueryExpression("case", new ColumnSet(true));
 
             //request.Query = query;
 
-            //var response = await service.Execute(new WhoAmIRequest());
-            
-            //var response = await service.RestRetrieveMultiple("oltv_insurance", new ColumnSet("oltv_name"));
-            
-            //return new GetInsurancesResponse()
-            //{
-            //    Status = ExecutionStatus.Success
-            //};
+            //var response = await service.Retrieve()
+
+            new AuthTest();
+
+            return new GetClaimsResponse()
+            {
+                Status = ExecutionStatus.Success
+            };
         }
     }
 }

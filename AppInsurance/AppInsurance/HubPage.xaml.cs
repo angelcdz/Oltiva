@@ -100,28 +100,28 @@ namespace AppInsurance
                 new GetInsurancesDTO() { Title = "ewf", Policy = "PPPPPPPPPP", Claims =  345, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) },
             };
 
-            //var claims = await new GetClaimsDAO().Execute(new GetClaimsRequest());
-            //this.DefaultViewModel["Claims"] = claims.Status == ExecutionStatus.Success ?
-            //                                  claims.Claims :
-            //                                  null;
+            var claims = await new GetClaimsDAO().Execute(new GetClaimsRequest());
+            this.DefaultViewModel["Claims"] = claims.Status == ExecutionStatus.Success ?
+                                              claims.Claims :
+                                              null;
 
-            this.DefaultViewModel["Claims"] = new List<GetClaimsDTO>()
-            {
-                new GetClaimsDTO() {
-                                     Id = Guid.NewGuid(),
-                                     Title = "Titulo 1",
-                                     Date = "July 17, 2015",
-                                     Status = "In Progress",
-                                     Time = "10:00 am"
-                                   },
-                new GetClaimsDTO() {
-                                     Id = Guid.NewGuid(),
-                                     Title = "Titulo 2",
-                                     Date = "May 2, 2014",
-                                     Status = "Complete",
-                                     Time = "01:00 pm"
-                                   }
-            };
+            //this.DefaultViewModel["Claims"] = new List<GetClaimsDTO>()
+            //{
+            //    new GetClaimsDTO() {
+            //                         Id = Guid.NewGuid(),
+            //                         Title = "Titulo 1",
+            //                         Date = "July 17, 2015",
+            //                         Status = "In Progress",
+            //                         Time = "10:00 am"
+            //                       },
+            //    new GetClaimsDTO() {
+            //                         Id = Guid.NewGuid(),
+            //                         Title = "Titulo 2",
+            //                         Date = "May 2, 2014",
+            //                         Status = "Complete",
+            //                         Time = "01:00 pm"
+            //                       }
+            //};
 
             //var challenges = await new GetChallengesDAO().Execute(new GetChallengesRequest());
             //this.DefaultViewModel["Challenges"] = challenges.Status == ExecutionStatus.Success ?

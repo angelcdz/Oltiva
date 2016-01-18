@@ -27,6 +27,9 @@
     <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.winmd">
+      <PackagePath>Microsoft.IdentityModel.Clients.ActiveDirectory.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\Assets\Icons\ambulance.png">
       <PackagePath>Assets\Icons\ambulance.png</PackagePath>
     </AppxPackagedFile>

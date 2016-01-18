@@ -363,3 +363,5 @@ C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\obj\De
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\obj\Debug\qualifiers.txt.intermediate
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\obj\Debug\ProjectArchitectures.txt
+C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.winmd
+C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml

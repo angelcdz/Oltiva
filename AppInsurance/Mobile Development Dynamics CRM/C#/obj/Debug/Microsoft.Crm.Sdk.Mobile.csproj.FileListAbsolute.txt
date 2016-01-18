@@ -35,3 +35,5 @@ C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development 
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\obj\Debug\qualifiers.txt
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\obj\Debug\qualifiers.txt.intermediate
 C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.winmd
+C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\Mobile Development Dynamics CRM\C#\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
