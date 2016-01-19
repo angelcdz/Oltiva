@@ -97,31 +97,31 @@ namespace AppInsurance
                 new GetInsurancesDTO() { Title = "Um", Policy = "XXXXX-X", Claims =  1, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/carrinho.jpg")) },
                 new GetInsurancesDTO() { Title = "2", Policy = "FFFFFF-FFF", Claims =  2, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/casinha.jpg")) },
                 new GetInsurancesDTO() { Title = "44324", Policy = "SSSSS-SSS", Claims =  3, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/motinha.jpg")) },
-                new GetInsurancesDTO() { Title = "ewf", Policy = "PPPPPPPPPP", Claims =  345, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) },
+                new GetInsurancesDTO() { Title = "ewf", Policy = "PPPPPPPPPP", Claims =  345, Background = new BitmapImage(new Uri(this.BaseUri,"/Images/verde.png")) },
             };
 
-            var claims = await new GetClaimsDAO().Execute(new GetClaimsRequest());
-            this.DefaultViewModel["Claims"] = claims.Status == ExecutionStatus.Success ?
-                                              claims.Claims :
-                                              null;
+            //var claims = await new GetClaimsDAO().Execute(new GetClaimsRequest());
+            //this.DefaultViewModel["Claims"] = claims.Status == ExecutionStatus.Success ?
+            //                                  claims.Claims :
+            //                                  null;
 
-            //this.DefaultViewModel["Claims"] = new List<GetClaimsDTO>()
-            //{
-            //    new GetClaimsDTO() {
-            //                         Id = Guid.NewGuid(),
-            //                         Title = "Titulo 1",
-            //                         Date = "July 17, 2015",
-            //                         Status = "In Progress",
-            //                         Time = "10:00 am"
-            //                       },
-            //    new GetClaimsDTO() {
-            //                         Id = Guid.NewGuid(),
-            //                         Title = "Titulo 2",
-            //                         Date = "May 2, 2014",
-            //                         Status = "Complete",
-            //                         Time = "01:00 pm"
-            //                       }
-            //};
+            this.DefaultViewModel["Claims"] = new List<GetClaimsDTO>()
+            {
+                new GetClaimsDTO() {
+                                     Id = Guid.NewGuid(),
+                                     Title = "Titulo 1",
+                                     Date = "July 17, 2015",
+                                     Status = "In Progress",
+                                     Time = "10:00 am"
+                                   },
+                new GetClaimsDTO() {
+                                     Id = Guid.NewGuid(),
+                                     Title = "Titulo 2",
+                                     Date = "May 2, 2014",
+                                     Status = "Complete",
+                                     Time = "01:00 pm"
+                                   }
+            };
 
             //var challenges = await new GetChallengesDAO().Execute(new GetChallengesRequest());
             //this.DefaultViewModel["Challenges"] = challenges.Status == ExecutionStatus.Success ?
@@ -130,9 +130,9 @@ namespace AppInsurance
 
             this.DefaultViewModel["Challenges"] = new List<GetChallengesDTO>()
             {
-                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/sergio_mallandro.jpg")) },
-                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today 1", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/sergio_mallandro.jpg")) },
-                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today 2", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/sergio_mallandro.jpg")) },
+                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/azul.png")) },
+                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today 1", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/azul.png")) },
+                new GetChallengesDTO() { Slogan = "I'm Feeling Lucky Today 2", Title = "Este é um teste, somente um teste =D", Background = new BitmapImage(new Uri(this.BaseUri,"/Images/azul.png")) },
             };
 
             //var rewards = await new GetRewardsDAO().Execute(new GetRewardsRequest());
@@ -142,10 +142,10 @@ namespace AppInsurance
 
             this.DefaultViewModel["Rewards"] = new List<GetRewardsDTO>()
             {
-                new GetRewardsDTO() { Expiration = "July 25, 2015", Title = "Titulo 1", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) },
-                new GetRewardsDTO() { Expiration = "July 25, 2015", Title = "Titulo 2", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) },
-                new GetRewardsDTO() { Expiration = "August 25, 2015", Title = "Teste Teste Teste Teste Teste Teste", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) },
-                new GetRewardsDTO() { Expiration = "September 25, 2015", Title = "Testao", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/pikachu.png")) }
+                new GetRewardsDTO() { Expiration = "July 25, 2015", Title = "Titulo 1", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/verde.png")) },
+                new GetRewardsDTO() { Expiration = "July 25, 2015", Title = "Titulo 2", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/verde.png")) },
+                new GetRewardsDTO() { Expiration = "August 25, 2015", Title = "Teste Teste Teste Teste Teste Teste", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/verde.png")) },
+                new GetRewardsDTO() { Expiration = "September 25, 2015", Title = "Testao", Icon = new BitmapImage(new Uri(this.BaseUri,"/Images/verde.png")) }
             };
         }
 

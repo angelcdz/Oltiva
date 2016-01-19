@@ -212,11 +212,13 @@
     <Content Include="Assets\Icons\technical_wrench.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Common\ReadMe.txt" />
+    <Content Include="Images\azul.png" />
     <Content Include="Images\carrinho.jpg" />
     <Content Include="Images\casinha.jpg" />
     <Content Include="Images\motinha.jpg" />
     <Content Include="Images\pikachu.png" />
     <Content Include="Images\sergio_mallandro.jpg" />
+    <Content Include="Images\verde.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

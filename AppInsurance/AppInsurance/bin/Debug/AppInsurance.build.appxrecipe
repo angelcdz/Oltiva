@@ -181,8 +181,14 @@
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\Images\azul.png">
+      <PackagePath>Images\azul.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\Images\pikachu.png">
       <PackagePath>Images\pikachu.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\Images\verde.png">
+      <PackagePath>Images\verde.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\angel.ojea.jorge\Desktop\Github\Oltiva\AppInsurance\AppInsurance\Assets\Collision-Notification.jpg">
       <PackagePath>Assets\Collision-Notification.jpg</PackagePath>
